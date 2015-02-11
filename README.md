@@ -1,5 +1,5 @@
 # InternshipIRKit
 
-IRKit‚Å—V‚ÔƒTƒ“ƒvƒ‹‚Å‚·B
+IRKitã§éŠã¶ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
 
 
