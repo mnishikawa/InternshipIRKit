@@ -32,8 +32,15 @@
         android:layout_height="100dp"
         android:id="@+id/buttonLeft"
         android:layout_toLeftOf="@+id/buttonRight"
-        android:layout_alignBottom="@+id/buttonRight"
         android:layout_alignTop="@+id/buttonRight" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/buttonArm"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
 
     <Button
         android:layout_width="wrap_content"
@@ -42,5 +49,16 @@
         android:id="@+id/buttonVoiceRec"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <WebView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/webView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
