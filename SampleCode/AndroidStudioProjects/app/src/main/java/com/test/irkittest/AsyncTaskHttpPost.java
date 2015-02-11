@@ -3,7 +3,6 @@ package com.test.irkittest;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpPost;
@@ -17,13 +16,13 @@ public class AsyncTaskHttpPost extends AsyncTask<String, Void, Boolean> {
 
     private String mUri = null;
 
-    private SendResultListener mListener=null;
+    private SendResultListener mListener = null;
 
-    public interface SendResultListener{
+    public interface SendResultListener {
         public void onSendResult(boolean isSend);
     }
 
-    public AsyncTaskHttpPost(String uri,SendResultListener listener) {
+    public AsyncTaskHttpPost(String uri, SendResultListener listener) {
         mUri = uri;
         mListener = listener;
     }
@@ -62,7 +61,8 @@ public class AsyncTaskHttpPost extends AsyncTask<String, Void, Boolean> {
             }
 
             // HTTPリクエスト発行
-            AndroidHttpClient httpClient = AndroidHttpClient.newInstance("Android HTTP Client Test");
+            AndroidHttpClient httpClient = AndroidHttpClient
+                    .newInstance("Android HTTP Client Test");
             HttpResponse response = null;
 
             boolean isSend = false;
@@ -94,7 +94,7 @@ public class AsyncTaskHttpPost extends AsyncTask<String, Void, Boolean> {
         super.onPostExecute(isSend);
         Log.v(TAG, "onPostExecute bool = " + isSend);
 
-        if(mListener != null){
+        if (mListener != null) {
             mListener.onSendResult(isSend);
         }
     }
