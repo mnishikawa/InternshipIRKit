@@ -6,6 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.HttpAuthHandler;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -16,6 +19,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private static final int REQUEST_CODE = 0;
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String IRKIT_IP_ADDRESS = "192.168.0.20";
+    private static final String CAMERA_IP_ADDRESS = "192.168.0.17";
+    private static final String CAMERA_USERNAME = "test";
+    private static final String CAMERA_PASSWORD = "test";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         button = (Button)findViewById(R.id.buttonVoiceRec);
         button.setTag(null);
         button.setOnClickListener(this);
+
+        //カメラに接続
+        WebView webView = (WebView)findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
+                handler.proceed(CAMERA_USERNAME, CAMERA_PASSWORD);
+            }
+        });
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setVerticalScrollbarOverlay(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.loadUrl("http://" + CAMERA_IP_ADDRESS + ":8080");
     }
 
     @Override
@@ -68,7 +88,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         //送信する信号が設定されている場合は、制御する
         else{
             //制御する
-            AsyncTaskHttpPost post = new AsyncTaskHttpPost("http://192.168.0.20/messages", mSendResultListener);
+            AsyncTaskHttpPost post = new AsyncTaskHttpPost("http://"+IRKIT_IP_ADDRESS+"/messages", mSendResultListener);
             post.execute(signal);
         }
     }
