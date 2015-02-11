@@ -3,10 +3,11 @@
 
     <string name="app_name">IRKitTest</string>
     <string name="voice_rec_operation">声で操作</string>
-    <string name="voice_rec_guide">"どっちに行く？(前、後ろ、右、左)"</string>
+    <string name="voice_rec_guide">"どっちに行く？(前、後ろ、右、左、シャベル)"</string>
     <string name="voice_rec_forward">前</string>
     <string name="voice_rec_back">後ろ</string>
     <string name="voice_rec_left">左</string>
     <string name="voice_rec_right">右</string>
+    <string name="voice_rec_arm">シャベル</string>
 
 </resources>

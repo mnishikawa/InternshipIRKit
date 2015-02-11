@@ -32,8 +32,15 @@
         android:layout_height="100dp"
         android:id="@+id/buttonLeft"
         android:layout_toLeftOf="@+id/buttonRight"
-        android:layout_alignBottom="@+id/buttonRight"
         android:layout_alignTop="@+id/buttonRight" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/buttonArm"
+        android:layout_alignTop="@+id/buttonLeft"
+        android:layout_alignRight="@+id/buttonVoiceRec"/>
+
 
     <Button
         android:layout_width="wrap_content"
